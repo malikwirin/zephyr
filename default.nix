@@ -1,10 +1,10 @@
 { pkgs ? import <nixpkgs> { }, ... }:
 
   let
-    mkDerivation = pkgs.stdenv.mkDerivation;
     lib = pkgs.lib;
     haskellPkg = pkgName: pkgs.haskellPackages."${pkgName}";
 
+    mkDerivation = haskellPkg "mkDerivation";
     aeson = haskellPkg "aeson";
     ansi-terminal = haskellPkg "ansi-terminal";
     ansi-wl-pprint = haskellPkg "ansi-wl-pprint";
@@ -32,8 +32,8 @@
     unordered-containers = haskellPkg "unordered-containers";
     utf8-string = haskellPkg "utf8-string";
   in mkDerivation rec {
-    name = "zephyr";
-    pname = name;
+    pname = "zephyr";
+    version = "5.3";
     src = ./.;
     isLibrary = true;
     isExecutable = true;
@@ -51,12 +51,10 @@
       QuickCheck text transformers
     ];
     testToolDepends = [ purescript ];
-    meta = {
-      description = "Zephyr, tree-shaking for the PureScript language";
-      license = lib.licenses.mpl20;
-      homepage = "https://github.com/MaybeJustJames/zephyr";
-      maintainers = with pkgs.lib.maintainers; [ malik ];
-    };
+    license = lib.licenses.mpl20;
+    description = "Zephyr, tree-shaking for the PureScript language";
+    homepage = "https://github.com/MaybeJustJames/zephyr";
+    maintainers = with pkgs.lib.maintainers; [ malik ];
     hydraPlatforms = lib.platforms.none;
-    mainProgram = name;
+    mainProgram = pname;
   }
