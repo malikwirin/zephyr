@@ -1,34 +1,62 @@
-{ mkDerivation, aeson, ansi-terminal, ansi-wl-pprint, async, base, lib
-     , boxes, bytestring, containers, directory, filepath, formatting
-     , Glob, hspec, hspec-core, HUnit, language-javascript, mtl
-     , optparse-applicative, process, purescript, QuickCheck, safe, text
-     , transformers, unordered-containers, utf8-string
-   }:
+{ pkgs ? import <nixpkgs> { }, ... }:
 
-mkDerivation {
-       pname = "zephyr";
-       version = "0.5.3";
-       sha256 = "1chfs864kayq4xfl5yz4pcwfy1zpsq9ygbvlbj3s7lifg7khyffz";
-       source = ./.;
-       isLibrary = true;
-       isExecutable = true;
-       libraryHaskellDepends = [
-         aeson ansi-terminal base boxes containers formatting
-         language-javascript mtl purescript safe text unordered-containers
-       ];
-       executableHaskellDepends = [
-         aeson ansi-terminal ansi-wl-pprint async base bytestring containers
-         directory filepath formatting Glob language-javascript mtl
-         optparse-applicative purescript text transformers utf8-string
-       ];
-       testHaskellDepends = [
-         aeson base containers directory hspec hspec-core HUnit
-         language-javascript mtl optparse-applicative process purescript
-         QuickCheck text transformers
-       ];
-       testToolDepends = [ purescript ];
-       description = "Zephyr, tree-shaking for the PureScript language";
-       license = lib.licenses.mpl20;
-       hydraPlatforms = lib.platforms.none;
-       mainProgram = "zephyr";
-     }
+  let
+    mkDerivation = pkgs.stdenv.mkDerivation;
+    lib = pkgs.lib;
+    haskellPkg = pkgName: pkgs.haskellPackages."${pkgName}";
+
+    aeson = haskellPkg "aeson";
+    ansi-terminal = haskellPkg "ansi-terminal";
+    ansi-wl-pprint = haskellPkg "ansi-wl-pprint";
+    async = haskellPkg "async";
+    base = haskellPkg "base";
+    boxes = haskellPkg "boxes";
+    bytestring = haskellPkg "bytestring_0_12_1_0";
+    containers = haskellPkg "containers_0_7";
+    directory = haskellPkg "directory_1_3_9_0";
+    filepath = haskellPkg "filepath_1_5_3_0";
+    formatting = haskellPkg "formatting";
+    Glob = haskellPkg "Glob";
+    hspec = haskellPkg "hspec";
+    hspec-core = haskellPkg "hspec-core";
+    HUnit = haskellPkg "HUnit";
+    language-javascript = haskellPkg "language-javascript";
+    mtl = haskellPkg "mtl_2_3_1";
+    optparse-applicative = haskellPkg "optparse-applicative";
+    process = haskellPkg "process_1_6_25_0"; 
+    purescript = haskellPkg "purescript"; 
+    QuickCheck = haskellPkg "QuickCheck"; 
+    safe = haskellPkg "safe";
+    text = haskellPkg "text_2_1_1";
+    transformers = haskellPkg "transformers_0_6_1_2";
+    unordered-containers = haskellPkg "unordered-containers";
+    utf8-string = haskellPkg "utf8-string";
+  in mkDerivation rec {
+    name = "zephyr";
+    pname = name;
+    src = ./.;
+    isLibrary = true;
+    isExecutable = true;
+    libraryHaskellDepends = [
+      aeson ansi-terminal base boxes containers formatting language-javascript mtl purescript safe text unordered-containers
+    ];
+    executableHaskellDepends = [
+      aeson ansi-terminal ansi-wl-pprint async base bytestring containers
+      directory filepath formatting Glob language-javascript mtl
+      optparse-applicative purescript text transformers utf8-string
+    ];
+    testHaskellDepends = [
+      aeson base containers directory hspec hspec-core HUnit
+      language-javascript mtl optparse-applicative process purescript
+      QuickCheck text transformers
+    ];
+    testToolDepends = [ purescript ];
+    meta = {
+      description = "Zephyr, tree-shaking for the PureScript language";
+      license = lib.licenses.mpl20;
+      homepage = "https://github.com/MaybeJustJames/zephyr";
+      maintainers = with pkgs.lib.maintainers; [ malik ];
+    };
+    hydraPlatforms = lib.platforms.none;
+    mainProgram = name;
+  }
