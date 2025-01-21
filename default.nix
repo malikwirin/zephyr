@@ -18,7 +18,7 @@
     formatting = haskellPkg "formatting";
     Glob = haskellPkg "Glob";
     hspec = haskellPkg "hspec";
-    hspec-core = haskellPkg "hspec-core_2_7_10";
+    hspec-core = haskellPkg "hspec-core";
     HUnit = haskellPkg "HUnit";
     language-javascript = haskellPkg "language-javascript";
     mtl = haskellPkg "mtl_2_3_1";
