@@ -7,7 +7,7 @@
     mkDerivation = haskellPkg "mkDerivation";
     aeson = haskellPkg "aeson";
     ansi-terminal = haskellPkg "ansi-terminal";
-    ansi-wl-pprint = haskellPkg "ansi-wl-pprint";
+    ansi-wl-pprint = haskellPkg "ansi-wl-pprint_0_6_9";
     async = haskellPkg "async";
     base = haskellPkg "base";
     boxes = haskellPkg "boxes";
@@ -18,7 +18,7 @@
     formatting = haskellPkg "formatting";
     Glob = haskellPkg "Glob";
     hspec = haskellPkg "hspec";
-    hspec-core = haskellPkg "hspec-core";
+    hspec-core = haskellPkg "hspec-core_2_7_10";
     HUnit = haskellPkg "HUnit";
     language-javascript = haskellPkg "language-javascript";
     mtl = haskellPkg "mtl_2_3_1";
