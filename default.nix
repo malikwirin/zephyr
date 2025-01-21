@@ -9,7 +9,7 @@
     ansi-terminal = haskellPkg "ansi-terminal";
     ansi-wl-pprint = haskellPkg "ansi-wl-pprint_0_6_9";
     async = haskellPkg "async";
-    base = haskellPkg "base";
+    base = haskellPkg "base_4_20_0_1";
     boxes = haskellPkg "boxes";
     bytestring = haskellPkg "bytestring_0_12_1_0";
     containers = haskellPkg "containers_0_7";
