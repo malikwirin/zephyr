@@ -14,7 +14,7 @@
     bytestring = haskellPkg "bytestring_0_12_2_0";
     containers = haskellPkg "containers_0_7";
     directory = haskellPkg "directory_1_3_9_0";
-    filepath = haskellPkg "filepath_1_5_3_0";
+    filepath = haskellPkg "filepath_1_5_4_0";
     formatting = haskellPkg "formatting";
     Glob = haskellPkg "Glob";
     hspec = haskellPkg "hspec";
