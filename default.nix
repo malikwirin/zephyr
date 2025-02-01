@@ -27,7 +27,7 @@
     purescript = haskellPkg "purescript"; 
     QuickCheck = haskellPkg "QuickCheck"; 
     safe = haskellPkg "safe";
-    text = haskellPkg "text_2_1_1";
+    text = haskellPkg "text_2_1_2";
     transformers = haskellPkg "transformers_0_6_1_2";
     unordered-containers = haskellPkg "unordered-containers";
     utf8-string = haskellPkg "utf8-string";
