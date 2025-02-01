@@ -11,7 +11,7 @@
     async = haskellPkg "async";
     base = haskellPkg "base_4_21_0_0";
     boxes = haskellPkg "boxes";
-    bytestring = haskellPkg "bytestring_0_12_1_0";
+    bytestring = haskellPkg "bytestring_0_12_2_0";
     containers = haskellPkg "containers_0_7";
     directory = haskellPkg "directory_1_3_9_0";
     filepath = haskellPkg "filepath_1_5_3_0";
